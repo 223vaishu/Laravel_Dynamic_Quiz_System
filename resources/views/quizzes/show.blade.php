@@ -47,3 +47,4 @@
 @endforelse
 
 <a href="{{ route('quizzes.index') }}">Back to Quizzes</a>
+<a href="{{ route('attempts.create', $quiz) }}">Attempt Quiz</a>

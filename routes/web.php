@@ -15,4 +15,16 @@ Route::get('/quizzes/{quiz}/questions/create', [QuestionController::class, 'crea
     ->name('questions.create');
 
 Route::post('/quizzes/{quiz}/questions', [QuestionController::class, 'store'])
-    ->name('questions.store');
+    ->name('questions.store'); 
+
+
+use App\Http\Controllers\AttemptController;
+
+Route::get('/quizzes/{quiz}/attempt', [AttemptController::class, 'create'])
+    ->name('attempts.create');
+
+Route::post('/quizzes/{quiz}/attempt', [AttemptController::class, 'store'])
+    ->name('attempts.store');
+
+Route::get('/attempts/{attempt}/result', [AttemptController::class, 'result'])
+    ->name('attempts.result');
