@@ -15,7 +15,10 @@ Route::get('/quizzes/{quiz}/questions/create', [QuestionController::class, 'crea
     ->name('questions.create');
 
 Route::post('/quizzes/{quiz}/questions', [QuestionController::class, 'store'])
-    ->name('questions.store'); 
+    ->name('questions.store');
+
+Route::delete('/quizzes/{quiz}/questions/{question}', [QuestionController::class, 'destroy'])
+    ->name('questions.destroy'); 
 
 
 use App\Http\Controllers\AttemptController;

@@ -1,59 +1,175 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Quiz System (Laravel)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 Objective
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Build a flexible Quiz System that supports multiple question types, media, and evaluation logic.
+This project demonstrates Laravel fundamentals, data modeling, extensibility, and clean architecture.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📝 Quiz Management
 
-## Laravel Sponsors
+* Create quizzes with title and description
+* Add multiple questions to a quiz
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### ❓ Supported Question Types
 
-### Premium Partners
+1. Binary (Yes/No or True/False)
+2. Single Choice (one correct option)
+3. Multiple Choice (multiple correct options)
+4. Number Input
+5. Text Input
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🛠 Question Editor
 
-## Contributing
+* Rich text / HTML support
+* Image upload (stored locally)
+* Video URL support (e.g., YouTube)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🔘 Options Handling
 
-## Code of Conduct
+* Options can include:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  * Text
+  * Image
+  * Or both
 
-## Security Vulnerabilities
+### 🎯 Quiz Attempt
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Users can attempt quizzes
+* Supports answering all question types
+* Submit quiz for evaluation
 
-## License
+### 📊 Evaluation Logic
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Each question has configurable marks (default = 1)
+* Automatic score calculation
+* Result displayed after submission
+
+---
+
+## 🧱 Tech Stack
+
+* **Backend:** Laravel (latest stable)
+* **Database:** MySQL / SQLite
+* **Frontend:** Blade / Simple JavaScript
+* **Storage:** Local filesystem
+
+---
+
+## 🗄 Database Structure
+
+The system is designed with extensibility in mind:
+
+* `quizzes` → Stores quiz metadata
+* `questions` → Stores question details and type
+* `options` → Stores answer options (if applicable)
+* `attempts` → Stores quiz attempts
+* `answers` → Stores user responses
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone <your-repo-url>
+cd quiz-system
+```
+
+### 2. Install Dependencies
+
+```bash
+composer install
+npm install
+```
+
+### 3. Environment Setup
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Configure Database
+
+Update `.env` with your database credentials.
+
+### 5. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+### 6. Storage Link
+
+```bash
+php artisan storage:link
+```
+
+### 7. Start Server
+
+```bash
+php artisan serve
+```
+
+---
+
+## 🧪 Usage
+
+1. Create a quiz
+2. Add questions with different types
+3. Add options (if required)
+4. Attempt quiz
+5. Submit and view results
+
+---
+
+## 🧩 Design Principles
+
+* **Extensible architecture** for adding new question types
+* **Separation of concerns** for clean code
+* **Reusable evaluation logic**
+* Avoids hardcoded logic per question type
+
+---
+
+## 📁 Project Structure (Overview)
+
+```
+app/
+ ├── Models/
+ ├── Http/
+ ├── Services/
+database/
+ ├── migrations/
+resources/
+ ├── views/
+routes/
+ ├── web.php
+```
+
+---
+
+## 📄 Additional Documentation
+
+* `ARCHITECTURE.md` → Design decisions & extensibility
+* `AI_USAGE.md` → AI prompts, usage, and improvements
+
+---
+
+## 📌 Notes
+
+* Authentication is not implemented (as per requirements)
+* System is designed to be easily extendable for future features
+
+---
+
+

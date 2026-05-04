@@ -35,4 +35,12 @@ class QuizController extends Controller
     {
         return view('quizzes.show', compact('quiz'));
     }
+
+    public function destroy(Quiz $quiz)
+    {
+        $quiz->delete();
+
+        return redirect()->route('quizzes.index')
+            ->with('success', 'Quiz deleted successfully.');
+    }
 }

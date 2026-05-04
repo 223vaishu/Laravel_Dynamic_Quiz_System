@@ -58,4 +58,12 @@ class QuestionController extends Controller
         return redirect()->route('quizzes.show', $quiz)
             ->with('success', 'Question added successfully.');
     }
+
+    public function destroy(Quiz $quiz, Question $question)
+    {
+        $question->delete();
+
+        return redirect()->route('quizzes.show', $quiz)
+            ->with('success', 'Question deleted successfully.');
+    }
 }
